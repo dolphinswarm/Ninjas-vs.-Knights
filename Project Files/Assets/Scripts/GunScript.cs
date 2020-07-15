@@ -465,7 +465,8 @@ public class GunScript : MonoBehaviour
         remainingBullets = clipSize;
 
         // Update the UI
-        gameManager.ammoCounter.GetComponent<TMP_Text>().text = remainingBullets + " / " + clipSize;
+        if (playerController != null && playerController.gun == this)
+            gameManager.ammoCounter.GetComponent<TMP_Text>().text = remainingBullets + " / " + clipSize;
 
         // Un-toggle the reload
         if (owningGameObject != null)

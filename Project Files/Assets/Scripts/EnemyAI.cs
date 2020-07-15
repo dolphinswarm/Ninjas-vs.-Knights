@@ -281,6 +281,9 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
+        // If we're missing a target, set it
+        if (navMeshTarget == null) SetTarget();
+
         // Apply animations
         if (Physics.Raycast(new Ray(transform.position, Vector3.down), 1.0f))
         {

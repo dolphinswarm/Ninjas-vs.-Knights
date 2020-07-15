@@ -267,6 +267,9 @@ public class PlayerAI : MonoBehaviour
             }
         }
 
+        // If we're missing a target, set it
+        if (navMeshTarget == null) SetTarget();
+
         // Apply animations
         if (Physics.Raycast(new Ray(transform.position, Vector3.down), 1.0f))
         {
@@ -342,12 +345,12 @@ public class PlayerAI : MonoBehaviour
             if (isHoldingFlag)
             {
                 currentState = PlayerState.WalkingTowardsBase;
-                navMeshTarget = gameManager.enemyGoal.transform;
+                navMeshTarget = gameManager.playerGoal.transform;
             }
             else
             {
                 currentState = PlayerState.WalkingTowardsFlag;
-                navMeshTarget = gameManager.playerFlag.transform;
+                navMeshTarget = gameManager.enemyFlag.transform;
             }
         }
         navMeshAgent.SetDestination(navMeshTarget.position);

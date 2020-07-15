@@ -60,8 +60,8 @@ public class AimerMovement : MonoBehaviour
             Vector3 delta = curPos - prevPos;
 
             // Modify x and y comoponents
-            delta.x *= 0.05f;
-            delta.y *= 0.1f;
+            delta.x *= 0.02f;
+            delta.y *= 0.04f;
 
             // Move
             transform.localPosition += delta;
